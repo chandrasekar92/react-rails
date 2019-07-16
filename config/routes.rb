@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :microposts
+  resources :users
   get 'session/new'
   get 'home/index'
   get '/login', to: 'session#new'
@@ -9,5 +11,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root 'articles#index'
+  # root 'articles#index'
+  root 'application#hello'
 end

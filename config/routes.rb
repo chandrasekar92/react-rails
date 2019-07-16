@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :microposts
+  resources :users
   get 'session/new'
   get 'home/index'
   get '/login', to: 'session#new'

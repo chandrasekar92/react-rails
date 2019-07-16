@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root 'articles#index'
+  # root 'articles#index'
+  root 'application#hello'
 end

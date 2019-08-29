@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  resources :microposts
-  resources :users
-  get 'session/new'
+  devise_for :users
+  # resources :microposts
   get 'home/index'
-  get '/login', to: 'session#new'
-  post '/login', to: 'session#create'
-  delete '/logout', to: 'session#destroy'
-
   resources :articles do
     resources :comments
   end

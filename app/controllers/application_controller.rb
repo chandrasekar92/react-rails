@@ -3,10 +3,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def hello
+    render html: "hello Rails"
+  end
+
   protected
 
   def after_sign_in_path_for(users)
-    grid_index_path
+    articles_path
   end
 
   def configure_permitted_parameters
@@ -15,7 +19,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit( :studentid, :email, :password, :password_confirmation, :current_password) }
   end
 
-  def hello
-    render html: "hello Rails"
-  end
 end
